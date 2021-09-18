@@ -14,10 +14,10 @@ const {
   getMovies, addMovie, deleteMovie,
 } = require('../controllers/movies');
 
-router.get('/', getMovies);
-router.delete('/:movieId', celebrate({
+router.get('/movies/', getMovies);
+router.delete('/movies/:movieId', celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().length(24).hex(),
+    movieId: Joi.string().required().length(24).hex(),
   }),
 }), deleteMovie);
 router.post('/', celebrate({
@@ -32,7 +32,7 @@ router.post('/', celebrate({
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
     thumbnail: Joi.string().required().custom(method),
-    movieId: Joi.string().length(24).hex(),
+    movieId: Joi.number().required(),
   }),
 }), addMovie);
 

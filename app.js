@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const auth = require('./middlewares/auth');
 const errorsHandler = require('./middlewares/errorsHandler');
@@ -13,7 +12,6 @@ require('dotenv').config();
 const app = express();
 const { MONGODB, NODE_ENV, PORT = 3000 } = process.env;
 const mangoConnect = NODE_ENV === 'production' ? MONGODB : 'mongodb://localhost:27017/diplomdb';
-const { login, registerUser } = require('./controllers/users');
 
 mongoose.connect(mangoConnect, {
   useNewUrlParser: true,
@@ -30,24 +28,11 @@ app.use(requestLogger);
 
 app.use(cors);
 
-app.post('/signin', celebrate({
-  body: Joi.object().keys({
-    email: Joi.string().required().email(),
-    password: Joi.string().required().min(2),
-  }),
-}),
-login);
-app.post('/signup', celebrate({
-  body: Joi.object().keys({
-    email: Joi.string().required().email(),
-    password: Joi.string().required().min(8),
-    name: Joi.string().min(2).max(30),
-  }),
-}), registerUser);
+app.use(require('./routes/signupSigin'));
 
 app.use(auth);
-app.use('/users', require('./routes/users'));
-app.use('/movies', require('./routes/movies'));
+app.use(require('./routes/users'));
+app.use(require('./routes/movies'));
 
 app.use('/', (req, res, next) => {
   next(new NotFoundError('Маршрут не найден'));

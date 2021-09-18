@@ -44,6 +44,9 @@ module.exports.editUserProfile = (req, res, next) => {
       } else if (err.name === 'CastError') {
         const badrequest = new BadRequest('Переданы некорректные данные user id.');
         next(badrequest);
+      } else if (err.name === 'MongoError' && err.code === 11000) {
+        const conflictingRequest = new ConflictingRequest('Почта уже существует');
+        next(conflictingRequest);
       } else {
         next(err);
       }
