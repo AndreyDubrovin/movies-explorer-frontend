@@ -1,0 +1,16 @@
+.techs__button {
+  max-width: 90px;
+  height: 60px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  border: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #000000;
+  padding: 0;
+}

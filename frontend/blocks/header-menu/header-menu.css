@@ -1,0 +1,7 @@
+.header-menu {
+  min-height: 74px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

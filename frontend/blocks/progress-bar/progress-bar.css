@@ -1,0 +1,5 @@
+.progress-bar {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding-top: 110px;
+}

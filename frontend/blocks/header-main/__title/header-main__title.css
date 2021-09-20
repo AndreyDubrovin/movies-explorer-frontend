@@ -1,0 +1,9 @@
+.header-main__title {
+  max-width: 640px;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  color: #ffffff;
+}
