@@ -1,0 +1,25 @@
+.project-item__title {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  margin-bottom: 26px;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .project-item__title {
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .project-item__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 16px;
+  }
+}

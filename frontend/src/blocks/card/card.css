@@ -1,0 +1,20 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 270px;
+  background: #fdfdfd;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    max-width: 339px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card {
+    max-width: 300px;
+  }
+}

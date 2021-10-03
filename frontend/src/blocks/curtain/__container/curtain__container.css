@@ -1,0 +1,38 @@
+
+@keyframes moveBg {
+  0% {
+  width: 0%;
+  }
+
+  100% {
+    width: 68%;
+  }
+}
+
+
+@keyframes moveSm {
+  0% {
+  width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+.curtain__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 100%;
+/*   width: 68%; */
+  animation: moveBg 0.1s ease-out 0s 1 forwards running;
+}
+
+@media screen and (max-width: 320px) {
+  .curtain__container {
+    animation: moveSm 0.1s ease-out 0s 1 forwards running;
+  }
+}
+

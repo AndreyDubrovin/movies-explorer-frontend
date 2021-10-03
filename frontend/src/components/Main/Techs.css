@@ -1,0 +1,6 @@
+@import url(../../blocks/techs/techs.css);
+@import url(../../blocks/techs/__items/techs__items.css);
+@import url(../../blocks/techs/__title/techs__title.css);
+@import url(../../blocks/techs/__subtitle/techs__subtitle.css);
+@import url(../../blocks/techs/__item/techs__item.css);
+@import url(../../blocks/techs/__text/techs__text.css);

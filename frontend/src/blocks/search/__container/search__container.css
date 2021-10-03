@@ -1,0 +1,8 @@
+.search__container {
+  display: grid;
+  grid-template-columns: minmax(238px,1086px) 54px;
+  align-items: center;
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 39px;
+  margin-bottom: 10px;
+}

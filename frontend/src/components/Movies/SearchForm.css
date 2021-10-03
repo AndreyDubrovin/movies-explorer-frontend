@@ -1,0 +1,7 @@
+@import url(../../blocks/search/search.css);
+@import url(../../blocks/search/__container/search__container.css);
+@import url(../../blocks/search/__form/search__form.css);
+@import url(../../blocks/search/__submit-button/search__submit-button.css);
+@import url(../../blocks/search/__invisible-checkbox/search__invisible-checkbox.css);
+@import url(../../blocks/search/__visible-checkbox/search__visible-checkbox.css);
+@import url(../../blocks/search/__checkbox-label/search__checkbox-label.css);

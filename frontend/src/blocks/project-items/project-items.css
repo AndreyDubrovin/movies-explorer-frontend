@@ -1,0 +1,21 @@
+.project-items {
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .project-items {
+    column-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .project-items {
+    padding-top: 60px;
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+  }
+}
+

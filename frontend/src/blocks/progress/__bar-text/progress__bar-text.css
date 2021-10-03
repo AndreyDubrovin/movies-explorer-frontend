@@ -1,0 +1,17 @@
+.progress__bar-text {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 320px) {
+  .progress__bar-text {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}

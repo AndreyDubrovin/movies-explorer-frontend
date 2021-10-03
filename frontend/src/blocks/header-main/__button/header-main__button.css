@@ -1,0 +1,30 @@
+.header-main__button {
+  width: 129px;
+  min-height: 36px;
+  margin-top: 146px;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0;
+  color: rgb(255, 255, 255);
+  background-color: #073042;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .header-main__button {
+    margin-top: 92px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header-main__button {
+    margin-top: 80px;
+  }
+}

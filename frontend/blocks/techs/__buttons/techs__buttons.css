@@ -1,8 +1,0 @@
-.techs__buttons {
-  margin: auto;
-  display: grid;
-  column-gap: 10px;
-  grid-template-columns: repeat(auto-fit,90px);
-  justify-content: center;
-  align-items: center;
-}

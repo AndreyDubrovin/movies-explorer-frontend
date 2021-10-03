@@ -1,0 +1,10 @@
+@import url(../../blocks/cards/cards.css);
+@import url(../../blocks/cards/__container/cards__container.css);
+@import url(../../blocks/card/card.css);
+@import url(../../blocks/card/__image/card__image.css);
+@import url(../../blocks/card/__title/card__title.css);
+@import url(../../blocks/card/__save/card__save.css);
+@import url(../../blocks/card/__save/_active/card__save_active.css);
+@import url(../../blocks/card/__time/card__time.css);
+@import url(../../blocks/more/more.css);
+@import url(../../blocks/more/__button/more__button.css);

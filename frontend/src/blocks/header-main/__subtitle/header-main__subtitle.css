@@ -1,0 +1,27 @@
+.header-main__subtitle {
+  margin-top: 36px;
+  margin-bottom: 0;
+  max-width: 310px;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .header-main__subtitle {
+    text-align: center;
+    max-width: 260px;
+    margin-top: 22px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header-main__subtitle {
+    margin-top: 24px;
+  }
+}

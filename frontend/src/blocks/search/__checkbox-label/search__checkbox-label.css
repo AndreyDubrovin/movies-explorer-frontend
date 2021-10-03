@@ -1,0 +1,23 @@
+.search__checkbox-label {
+  cursor: pointer;
+  margin: 28px auto 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+  .search__checkbox-label {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search__checkbox-label {
+    margin-top: 46px;
+    font-size: 11px;
+  }
+}

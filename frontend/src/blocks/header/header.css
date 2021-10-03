@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 0 70px;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 0 10px;
+  }
+}
