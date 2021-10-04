@@ -4,8 +4,8 @@
   padding: 50px 70px 80px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 450px) {
   .more {
-    padding: 50px 40px 80px;
+    padding: 62px 40px 80px;
   }
 }

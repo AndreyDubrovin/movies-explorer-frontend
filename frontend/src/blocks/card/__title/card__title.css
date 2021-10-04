@@ -9,13 +9,13 @@
   width: 206px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
   .card__title {
     margin-right: 93px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 750px) {
   .card__title {
     margin-right: 54px;
   }

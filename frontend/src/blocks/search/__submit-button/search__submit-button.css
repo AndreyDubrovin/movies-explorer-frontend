@@ -6,6 +6,7 @@
   border: 0;
   flex-basis: 44px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
