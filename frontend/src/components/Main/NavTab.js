@@ -40,9 +40,6 @@ function NavTab(props) {
           <div className="header-menu__logo"></div>
           <nav className="header-menu__nav">
                 <div className="header-menu__links">
-                <Link  to="/" className="header-menu__link-black">
-                  Главная
-                </Link>
                 <Link  to="/movies" className="header-menu__link-black">
                   Фильмы
                 </Link>

@@ -7,7 +7,7 @@ function MoviesCard(props) {
 <div className="card">
 <img className="card__image" src={props.card.image} alt="Карточка"/>
 <h2 className="card__title">33 слова о дизайне</h2>
-<button className={`card__save ${props.card.save ? "card__save_active" : ""}`}></button>
+<button className={`${props.card.delete ? "card__delete" : "card__save"} ${props.card.save ? "card__save_active" : ""}`}></button>
 <p className="card__time">1ч42м</p>
 </div>
   );
