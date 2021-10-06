@@ -1,0 +1,22 @@
+.header-menu__button-profile {
+  background: #f9f9f9;
+  border: 0;
+  border-radius: 20px;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  min-width: 100px;
+  min-height: 32px;
+  color: #000000;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .header-menu__button-profile {
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+.card__save {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.09);
+  margin-top: 14px;
+}
+
+.card__save:after {
+  content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 12px;
+	height: 12px;
+	background: #F9F9F9;
+	border-radius: 50%;
+}

@@ -1,0 +1,32 @@
+.techs__subtitle {
+  display: block;
+  margin: auto;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  margin-bottom: 100px;
+  max-width: 460px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .techs__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 22px;
+    margin-bottom: 83px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .techs__subtitle {
+    margin-top: 24px;
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 50px;
+  }
+}

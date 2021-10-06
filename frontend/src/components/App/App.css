@@ -1,0 +1,10 @@
+@import url(../../blocks/page/page.css);
+@import url(../Header/Header.css);
+@import url(../Main/Main.css);
+@import url(../Login/Login.css);
+@import url(../Footer/Footer.css);
+@import url(../Movies/Movies.css);
+@import url(../Navigation/Navigation.css);
+@import url(../Profile/Profile.css);
+@import url(../Register/Register.css);
+@import url(../SavedMovies/SavedMovies.css);

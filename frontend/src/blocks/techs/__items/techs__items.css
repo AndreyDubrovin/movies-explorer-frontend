@@ -1,0 +1,20 @@
+.techs__items {
+  margin: auto;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit,90px);
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width:768px) {
+  .techs__items {
+    grid-template-columns: repeat(auto-fit,84px);
+  }
+}
+
+@media screen and (max-width:320px) {
+  .techs__items {
+    grid-template-columns: 84px 84px;
+  }
+}

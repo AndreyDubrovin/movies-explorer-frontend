@@ -1,0 +1,10 @@
+.card__delete {
+  margin-top: 14px;
+  width: 12px;
+  height: 12px;
+  background-image: url(../../../images/close.svg);
+  border: 0;
+  background-size: contain;
+  background-color: white;
+  background-repeat: no-repeat;
+}

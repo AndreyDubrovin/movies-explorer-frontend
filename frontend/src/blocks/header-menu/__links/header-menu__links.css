@@ -1,0 +1,16 @@
+.header-menu__links {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+  .header-menu__links {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .curtain__container {
+    width: 100%;
+  }
+}

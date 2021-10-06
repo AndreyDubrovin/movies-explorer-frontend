@@ -1,0 +1,27 @@
+.search__invisible-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+input[type="checkbox"]:disabled {} /* выключенный */
+input[type="checkbox"]:checked {} /* выбранный */
+input[type="checkbox"]:focus {} /* в фокусе */
+
+.search__invisible-checkbox:disabled + .search__visible-checkbox {
+  background: gray;
+}
+
+.search__invisible-checkbox:checked + .search__visible-checkbox {
+  background: #2be080;
+}
+
+.search__invisible-checkbox:checked + .search__visible-checkbox:after {
+  transform: translate(16px);
+}
+
+.search__invisible-checkbox:focus + .search__visible-checkbox {
+
+}

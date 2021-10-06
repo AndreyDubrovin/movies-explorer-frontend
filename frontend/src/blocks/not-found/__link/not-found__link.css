@@ -1,0 +1,15 @@
+.not-found__link {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #3456F3;
+  text-decoration: none;
+}
+
+
+.not-found__link:hover {
+  opacity: 0.8;
+  transition: .3s;
+}

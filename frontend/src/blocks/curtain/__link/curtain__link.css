@@ -1,0 +1,27 @@
+  .curtain__link {
+    margin-left: 20px;
+    font-family: "Inter", Arial, sans-serif;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+    text-align: right;
+    margin-left: 0;
+    margin-bottom: 28px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .curtain__link:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 320px) {
+    .curtain__link {
+      margin-bottom: 24px;
+    }
+  }
+
+  .curtain__link:hover {
+    opacity: 0.8;
+    transition: .3s;
+  }

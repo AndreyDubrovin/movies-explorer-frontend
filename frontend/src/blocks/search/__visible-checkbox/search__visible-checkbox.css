@@ -1,0 +1,22 @@
+.search__visible-checkbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 20px;
+  width: 36px;
+  height: 20px;
+  background: gray;
+  margin: 0 12px 0 55px
+}
+
+.search__visible-checkbox:after {
+  content: '';
+	position: absolute;
+	top: 6px;
+	left: 6px;
+	width: 8px;
+	height: 8px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}

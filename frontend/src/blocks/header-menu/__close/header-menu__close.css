@@ -1,0 +1,17 @@
+.header-menu__close {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 22px;
+  height: 22px;
+  background-image: url(../../../images/close.svg);
+  background-repeat: no-repeat;
+  background-position:center;
+}
+
+@media screen and (max-width: 320px) {
+  .header-menu__close {
+    top: 18px;
+    right: 18px;
+  }
+}

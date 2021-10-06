@@ -1,0 +1,10 @@
+@import url(../../blocks/form/form.css);
+@import url(../../blocks/form/__logo/form__logo.css);
+@import url(../../blocks/form/__title/form__title.css);
+@import url(../../blocks/form/__lable/form__lable.css);
+@import url(../../blocks/form/__input/form__input.css);
+@import url(../../blocks/error/error.css);
+@import url(../../blocks/form/__button/form__button.css);
+@import url(../../blocks/form/__text/form__text.css);
+@import url(../../blocks/form/__link/form__link.css);
+@import url(../../blocks/form/__fieldset/form__fieldset.css);

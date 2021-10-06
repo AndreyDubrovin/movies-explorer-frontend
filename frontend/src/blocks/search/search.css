@@ -1,0 +1,15 @@
+.search {
+  padding: 80px 70px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    padding: 80px 30px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search {
+    padding: 80px 10px 0;
+  }
+}

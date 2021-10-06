@@ -1,0 +1,8 @@
+.progress__backend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2BE080;
+  height: 36px;
+}
+

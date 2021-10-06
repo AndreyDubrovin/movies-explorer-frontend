@@ -1,0 +1,16 @@
+.form__lable {
+  display:inline-block;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0;
+  margin: 20px 0 10px;
+}
+
+@media screen and (max-width: 450px) {
+  .form__lable {
+    margin: 20px 0 10px;
+  }
+}
