@@ -1,6 +1,7 @@
 const allowedCors = [
   'https://x4037.nomoredomains.rocks',
   'http://x4037.nomoredomains.rocks',
+  'http://localhost:3001',
 ];
 
 module.exports = (req, res, next) => {

@@ -7,4 +7,5 @@
 @import url(../../blocks/card/__delete/card__delete.css);
 @import url(../../blocks/card/__time/card__time.css);
 @import url(../../blocks/more/more.css);
+@import url(../../blocks/more/_active/more_active.css);
 @import url(../../blocks/more/__button/more__button.css);
