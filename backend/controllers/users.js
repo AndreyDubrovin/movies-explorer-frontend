@@ -54,6 +54,7 @@ module.exports.editUserProfile = (req, res, next) => {
 };
 
 module.exports.registerUser = (req, res, next) => {
+  const { NODE_ENV, JWT_SECRET } = process.env;
   const {
     name, email,
   } = req.body;
@@ -61,11 +62,18 @@ module.exports.registerUser = (req, res, next) => {
     .then((hash) => User.create({
       name, email, password: hash,
     }))
-    .then((user) => res.send({
-      data: {
-        name: user.name, email: user.email, _id: user._id,
-      },
-    }))
+    .then((user) => {
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        { expiresIn: '7d' });
+      res.cookie('jwt', `Bearer ${token}`, {
+        maxAge: 3600000 * 24 * 7,
+
+      }).send({
+        data: {
+          name: user.name, email: user.email, _id: user._id,
+        },
+      });
+    })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         const badrequest = new BadRequest('Переданы некорректные данные при создании пользователя.');
@@ -89,8 +97,7 @@ module.exports.login = (req, res, next) => {
       res
         .cookie('jwt', `Bearer ${token}`, {
           maxAge: 3600000 * 24 * 7,
-          httpOnly: true,
-          sameSite: true,
+
         })
         .send({
           data: {
@@ -109,3 +116,6 @@ module.exports.login = (req, res, next) => {
 module.exports.logout = (req, res) => {
   res.clearCookie('jwt').send({ data: 'выход успешен' });
 };
+/* httpOnly: true,
+sameSite: true,
+ */

@@ -1,4 +1,7 @@
 .profile__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 220px;
   list-style: none;
   padding: 0;

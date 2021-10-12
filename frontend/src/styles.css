@@ -1,0 +1,33 @@
+body {
+  margin: auto;
+  width: 1280px;
+  color: #2f80ed;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+div {
+    border: 1px solid red;
+}
+.logo {
+  display: block;
+  margin: 110px auto 10px;
+}
+
+.number {
+    width: 300px;
+    height: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.number1 {
+  align-self: start;
+}
+
+.number2 {
+  align-self: baseline;
+  font-size: 100px;
+}
+.number3 {
+  align-self: center;
+}

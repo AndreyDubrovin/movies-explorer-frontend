@@ -7,12 +7,38 @@ import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import Curtain from "../Main/Curtain";
 import PageNotFound from "../PageNotFound/PageNotFound";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory  } from "react-router-dom";
 import React from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import apiServer from "../../utils/MainApi";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
 
   const [isBurgerClick, setBurgerClick] = React.useState(false);
+  const [isloggedIn, setloggedIn] = React.useState(false);
+  const [currentUser, setcurrentUser] = React.useState({
+    name: "",
+    email: "",
+  });
+  const history = useHistory();
+
+
+  React.useEffect(() => {
+    apiServer
+      .getUserInfo()
+      .then((userInfo) => {
+        if (userInfo) {
+          setloggedIn(true);
+          setcurrentUser(userInfo.data);
+          history.push("/movies");
+        }
+      })
+      .catch((err) =>
+        console.log(`Ошибка получения данных о пользователе: ${err}`)
+      );
+    // .finally(() => editavatar.renderLoading(false));
+  }, [history]);
 
   function burgerClick() {
     setBurgerClick(true);
@@ -21,7 +47,24 @@ function App() {
   function closeClick() {
     setBurgerClick(false);
   }
+
+  function onLogin(user) {
+    setcurrentUser(user.data);
+    setloggedIn(true);
+  }
+
+  function logout() {
+    apiServer.logout()
+    .then(() => {
+        setloggedIn(false);
+        history.push("/");
+      })
+    .catch((err) =>
+      console.log(`Ошибка: ${err}`)
+    );
+  }
   return (
+    <CurrentUserContext.Provider value={currentUser}>
     <div className="page">
       <Curtain burger={isBurgerClick} curtainClose={closeClick} />
       <Switch>
@@ -29,7 +72,13 @@ function App() {
       <Main/>
       </Route>
       <Route path="/movies">
-      <Movies burger={burgerClick}/>
+      <ProtectedRoute
+              path="/movies"
+              loggedIn={isloggedIn}
+              burger={burgerClick}
+              component={Movies}
+            />
+{/*       <Movies burger={burgerClick}/> */}
       </Route>
       <Route path="/saved-movies">
       <SavedMovies burger={burgerClick}/>
@@ -38,18 +87,17 @@ function App() {
       <Register/>
       </Route>
       <Route path="/signin">
-      <Login/>
+      <Login login={onLogin}/>
       </Route>
       <Route path="/profile">
-      <Profile burger={burgerClick}/>
+      <Profile logout={logout} burger={burgerClick}/>
       </Route>
       <Route path="*">
     <PageNotFound />
   </Route>
-
   </Switch>
-
     </div>
+    </CurrentUserContext.Provider>
   );
 }
 
