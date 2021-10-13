@@ -6,11 +6,15 @@ function MoviesCard(props) {
   const hour = Math.floor(props.card.duration/60);
   const minute = (props.card.duration - hour*60);
 
+  function handleSaveClick() {
+    props.onSaveCard(props.card);
+  }
+
   return (
 <div className="card">
 <a href={props.card.trailerLink} target="_blank" rel="noreferrer"><img className="card__image" src={`https://api.nomoreparties.co${props.card.image.url}`} alt={props.card.nameRU}/></a>
 <h2 className="card__title">{props.card.nameRU}</h2>
-<button className={`${props.card.delete ? "card__delete" : "card__save"} ${props.card.save ? "card__save_active" : ""}`}></button>
+<button className={`${props.card.delete ? "card__delete" : "card__save"} ${props.card.save ? "card__save_active" : ""}`} onClick={handleSaveClick}></button>
 <p className="card__time">{`${hour}ч${minute}м`}</p>
 </div>
   );

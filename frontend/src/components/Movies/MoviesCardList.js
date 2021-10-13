@@ -21,6 +21,7 @@ console.log(cardsNew);
       <MoviesCard
         key={data.id}
         card={data}
+        onSaveCard={props.onSaveCard}
       />
       ))}
 </section>

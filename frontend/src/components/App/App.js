@@ -78,10 +78,14 @@ function App() {
               burger={burgerClick}
               component={Movies}
             />
-{/*       <Movies burger={burgerClick}/> */}
       </Route>
       <Route path="/saved-movies">
-      <SavedMovies burger={burgerClick}/>
+      <ProtectedRoute
+              path="/saved-movies"
+              loggedIn={isloggedIn}
+              burger={burgerClick}
+              component={SavedMovies}
+            />
       </Route>
       <Route path="/signup">
       <Register/>
@@ -90,7 +94,13 @@ function App() {
       <Login login={onLogin}/>
       </Route>
       <Route path="/profile">
-      <Profile logout={logout} burger={burgerClick}/>
+      <ProtectedRoute
+              path="/profile"
+              loggedIn={isloggedIn}
+              logout={logout}
+              burger={burgerClick}
+              component={Profile}
+            />
       </Route>
       <Route path="*">
     <PageNotFound />

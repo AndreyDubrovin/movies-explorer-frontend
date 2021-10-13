@@ -5,16 +5,10 @@ font-weight: normal;
 font-size: 11px;
 line-height: 13px;
 text-align: right;
-color: #00c3ff;
 margin: 0;
 padding: 0;
 border: 0;
 }
-
-.profile__text:disabled {
-  background-color: #fff;
-  color: #000000;
-  }
 
   .profile__text:focus {
     outline: none;

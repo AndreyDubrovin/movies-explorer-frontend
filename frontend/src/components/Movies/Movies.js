@@ -69,13 +69,29 @@ function Movies(props) {
       setQuantityCards(quantityCards + number);
     }
   }
+
+  function handleSaveCard(card) {
+    console.log(card);
+    /*       // Снова проверяем, есть ли уже лайк на этой карточке
+          const isLiked = card.likes.some((i) => i === currentUser._id);
+          // Отправляем запрос в API и получаем обновлённые данные карточки
+          api
+            .changeLikeCardStatus(card._id, !isLiked)
+            .then((newCard) => {
+              setCards((state) =>
+                state.map((c) => (c._id === card._id ? newCard.data : c))
+              );
+            })
+            .catch((err) => console.log(`Ошибка обновления like: ${err}`)); */
+        }
+
   return (
     <>
       <Header burger={props.burger} />
       <main className="main">
         <SearchForm checkbox={toggleChange} searchButton={handlerSearchButton} />
         <Preloader nothing={findNothing} loading={loading}/>
-        <MoviesCardList more={handlerMoreButton} cardsView={quantityCards} cards={findResult} />
+        <MoviesCardList onSaveCard={handleSaveCard} more={handlerMoreButton} cardsView={quantityCards} cards={findResult} />
       </main>
       <Footer />
     </>
