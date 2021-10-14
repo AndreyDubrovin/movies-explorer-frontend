@@ -104,7 +104,7 @@ class Api {
 }
 // конфиг api
 const apiConfig = {
-  baseUrl: "http://127.0.0.1:3000",
+  baseUrl: "https://62.84.115.180",
   headers: {
     "Content-Type": "application/json",
   },
