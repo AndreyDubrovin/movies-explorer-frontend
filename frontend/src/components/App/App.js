@@ -223,7 +223,7 @@ function App() {
             />
       </Route>
       <Route path="/signup">
-      <Register/>
+      <Register login={onLogin}/>
       </Route>
       <Route path="/signin">
       <Login login={onLogin}/>

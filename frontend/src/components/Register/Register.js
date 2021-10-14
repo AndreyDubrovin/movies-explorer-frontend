@@ -5,7 +5,7 @@ import apiServer from "../../utils/MainApi";
 import {useFormWithValidation} from "../Validation/Validation";
 
 
-function Register() {
+function Register(props) {
   const validation = useFormWithValidation();
   const history = useHistory();
   const [text, setText] = React.useState('');
@@ -14,14 +14,20 @@ function Register() {
     const { name, password, email } = validation.values;
     apiServer
       .register(name,password,email)
-/*       .then(() => {
-        props.registerStatus(true);
-      }) */
+      .then(() => {
+      apiServer.login(password,email)
+    .then((user) => {
+      props.login(user);
+    })
       .then(() => {
         history.push('/movies');
       })
       .catch((err) => {
-        setText(`Ошибка:${err}`);
+        setText(`${err}`);
+      });
+      })
+      .catch((err) => {
+        setText(`${err}`);
       }
 
       );

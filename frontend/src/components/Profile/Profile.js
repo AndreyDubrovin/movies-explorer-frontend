@@ -19,11 +19,8 @@ function Profile(props) {
         props.profileEdit(name,email);
         setText('Изменения выполнены');
       })
-      .then((data) => {
-        console.log(data);
-      })
       .catch((err) => {
-        setText(`Ошибка:${err}`);
+        setText(`${err}`);
       }
       );
   }

@@ -21,10 +21,8 @@ function Login(props) {
         history.push('/movies');
       })
       .catch((err) => {
-        setText(`Ошибка:${err}`);
-      }
-
-      );
+        setText(`${err}`);
+      });
   }
 
   return (
