@@ -104,7 +104,7 @@ class Api {
 }
 // конфиг api
 const apiConfig = {
-  baseUrl: "https://62.84.115.180",
+  baseUrl: "https://api.penoto.nomoredomains.club/",
   headers: {
     "Content-Type": "application/json",
   },
