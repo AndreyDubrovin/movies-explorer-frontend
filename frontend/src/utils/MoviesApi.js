@@ -24,6 +24,7 @@ const apiConfig = {
     "Content-Type": "application/json",
   },
 };
+
 //экспорт api
 const api = new Api(apiConfig);
 export default api;

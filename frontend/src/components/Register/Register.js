@@ -8,10 +8,7 @@ import {useFormWithValidation} from "../Validation/Validation";
 function Register() {
   const validation = useFormWithValidation();
   const history = useHistory();
-
-  console.log(validation.values.name)
-
-
+  const [text, setText] = React.useState('');
   function handleSubmit(e) {
     e.preventDefault();
     const { name, password, email } = validation.values;
@@ -24,12 +21,10 @@ function Register() {
         history.push('/movies');
       })
       .catch((err) => {
-        console.log(`${err}`);
-/*         props.registerStatus(false); */
+        setText(`Ошибка:${err}`);
       }
 
       );
-    // .finally(() => editavatar.renderLoading(false));
   }
   return (
     <>
@@ -47,6 +42,7 @@ function Register() {
           <input id="input-password" type="password" className="form__input" name="password" value={validation.values.password} onChange={validation.handleChange} minLength="8" required></input>
           <span className="error">{validation.errors.password}</span>
       </fieldset>
+        <p className="submit-error">{text}</p>
         <button className="form__button" disabled={!validation.isValid}>Зарегистрироваться</button>
         <p className="form__text">Уже зарегистрированы? <Link to="/signin" className="form__link">Войти</Link></p>
       </form>

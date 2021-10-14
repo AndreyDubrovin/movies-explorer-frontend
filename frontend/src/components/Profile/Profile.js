@@ -8,28 +8,24 @@ import apiServer from "../../utils/MainApi";
 function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext);
   const validation = useFormWithValidation(currentUser);
-/*   validation.values = {name: 'asdasdaw', email: 'a'}; */
-  console.log(validation);
-  console.log(currentUser);
+  const [text, setText] = React.useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
     const { name, email } = validation.values;
     apiServer
       .editProfile(name,email)
-/*       .then(() => {
-        props.registerStatus(true);
-      }) */
+      .then(() => {
+        props.profileEdit(name,email);
+        setText('Изменения выполнены');
+      })
       .then((data) => {
         console.log(data);
       })
       .catch((err) => {
-        console.log(`${err}`);
-/*         props.registerStatus(false); */
+        setText(`Ошибка:${err}`);
       }
-
       );
-    // .finally(() => editavatar.renderLoading(false));
   }
   return (
     <>
@@ -48,6 +44,7 @@ function Profile(props) {
       </div>
       <span className="error-profile">{validation.errors.email}</span>
       <ul className="profile__links">
+      <li><p className="submit-error">{text}</p></li>
         <li><button className="profile__link profile__link-button" disabled={!validation.isValid}>Редактировать</button></li>
         <li><p className="profile__link profile__link_color_red" onClick={props.logout}>Выйти из аккаунта</p></li>
       </ul>

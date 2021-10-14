@@ -20,9 +20,7 @@ function filterRequest(movies,str,short) {
 
   if (short) {
     movies.forEach((element) => {
-      console.log(element);
       if (element.duration <= 40) {
-        console.log(element);
         check(element);
       }
     });

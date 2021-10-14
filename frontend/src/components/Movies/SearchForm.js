@@ -9,8 +9,8 @@ function SearchForm(props) {
     props.searchButton(textSearch);
    }
 
-   function toggleChange() {
-    props.checkbox();
+   function toggleChange(e) {
+    props.checkbox(e.target.checked);
    }
 
    function handleChange(e) {

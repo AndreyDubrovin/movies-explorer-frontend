@@ -4,24 +4,23 @@ import React from "react";
 
 function MoviesCardList(props) {
 let cardsNew = [];
-let tepArray = [];
+let tempArray = [];
 
     for (let index = 0; index < props.cardsView; index++) {
       if (props.cards[index] !== undefined) {
-        tepArray.push(props.cards[index]);
+        tempArray.push(props.cards[index]);
       }
     }
-    cardsNew = tepArray;
-console.log(cardsNew);
-
+    cardsNew = tempArray;
   return (
     <>
     <section className="cards">
     {cardsNew.map((data, i) => (
       <MoviesCard
-        key={data.id}
+        key={data.id === undefined ? data._id : data.id}
         card={data}
         onSaveCard={props.onSaveCard}
+        saveMovies={props.saveMovies}
       />
       ))}
 </section>
