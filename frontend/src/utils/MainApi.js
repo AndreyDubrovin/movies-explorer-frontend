@@ -60,6 +60,11 @@ class Api {
   }
 
   addMovies(card) {
+    const linkTest = /^http/;
+    if (!linkTest.test(card.trailerLink)) card.trailerLink = 'https://api.penoto.nomoredomains.club/not-found';
+    if (card.country === null) card.country = 'none';
+    if (card.nameEN === null || card.nameEN === "") card.nameEN = 'none';
+    if (card.director === null) card.director = 'none';
     const {
       country,
       director,
@@ -73,7 +78,7 @@ class Api {
     const image = `https://api.nomoreparties.co${card.image.url}`;
     const trailer = card.trailerLink;
     const movieId = card.id;
-    return fetch(`${this.baseUrl}/`, {
+    return fetch(`${this.baseUrl}/movies/`, {
       method: "POST",
       credentials: 'include',
       headers: this.headers,
@@ -105,6 +110,7 @@ class Api {
 // конфиг api
 const apiConfig = {
   baseUrl: "https://api.penoto.nomoredomains.club",
+/*   baseUrl: "http://127.0.0.1:3000", */
   headers: {
     "Content-Type": "application/json",
   },

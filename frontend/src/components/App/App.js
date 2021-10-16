@@ -46,30 +46,40 @@ function App() {
   });
 
   React.useEffect(() => {
-    apiServer
+    if (localStorage.getItem('user')) {
+      setloggedIn(true);
+      setcurrentUser(JSON.parse(localStorage.getItem('user')));
+      history.push("/movies");
+    } else {
+      apiServer
       .getUserInfo()
       .then((userInfo) => {
         if (userInfo) {
           setloggedIn(true);
           setcurrentUser(userInfo.data);
+          localStorage.setItem('user', JSON.stringify({name: userInfo.data.name, email: userInfo.data.email}))
           history.push("/movies");
         }
       })
       .catch((err) =>
         console.log(`Ошибка получения данных о пользователе: ${err}`)
       );
-    // .finally(() => editavatar.renderLoading(false));
+    }
   }, [history]);
 
   React.useEffect(() => {
-    apiServer.getMovies()
-    .then((movies) =>{
-      setSaveMovies(movies.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  }, []);
+    if (isloggedIn === true) {
+      apiServer.getMovies()
+      .then((movies) =>{
+        setSaveMovies(movies.data);
+        localStorage.setItem('moviesSave', JSON.stringify(movies.data));
+        updateViewCards();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }, [isloggedIn]);
 
   function updateViewCards() {
     if (window.innerWidth > 1279) setQuantityCards(12);
@@ -87,12 +97,19 @@ function App() {
 
   function onLogin(user) {
     setcurrentUser(user.data);
+    localStorage.setItem('user', JSON.stringify({name: user.data.name, email: user.data.email}))
     setloggedIn(true);
   }
 
   function logout() {
     apiServer.logout()
     .then(() => {
+      localStorage.removeItem('user');
+      localStorage.removeItem('movies');
+      localStorage.removeItem('moviesAll');
+      localStorage.removeItem('moviesSave');
+      setfindResult([]);
+      setSaveMovies([]);
         setloggedIn(false);
         history.push("/");
       })
@@ -101,16 +118,56 @@ function App() {
     );
   }
 
-  function toggleChange(status) {
+  function toggleChangeMovies(status) {
     setChecked(status);
+    setFindNothing(false);
+    setLoading(true);
+    if (localStorage.getItem('moviesAll') && localStorage.getItem('movies')) {
+      const result = filterRequest(JSON.parse(localStorage.getItem('movies')),'',status)
+      setfindResult(result);
+      updateViewCards();
+      if (result.length === 0) {
+        setFindNothing(true);
+      }
+      setLoading(false);
+    }
    }
+
+   function toggleChangeMoviesSave(status) {
+    setChecked(status);
+    setFindNothing(false);
+    setLoading(true);
+    if (localStorage.getItem('moviesSave')) {
+      const result = filterRequest(JSON.parse(localStorage.getItem('moviesSave')),'',status)
+      setSaveMovies(result);
+      updateViewCards();
+      if (result.length === 0) {
+        setFindNothing(true);
+      }
+      setLoading(false);
+    }
+
+   }
+
+
 
   function handlerSearchButton(str) {
     setFindNothing(false);
     setLoading(true);
-    api.getMovies()
+    if (localStorage.getItem('moviesAll')) {
+      const result = filterRequest(JSON.parse(localStorage.getItem('moviesAll')),str,checked)
+      localStorage.setItem('movies', JSON.stringify(result));
+      setfindResult(result);
+      updateViewCards();
+      if (result.length === 0) {
+        setFindNothing(true);
+      }
+      setLoading(false);
+    } else {
+      api.getMovies()
       .then((movies) => {
         const result = filterRequest(movies,str,checked)
+        localStorage.setItem('moviesAll', JSON.stringify(movies));
         localStorage.setItem('movies', JSON.stringify(result));
         setfindResult(result);
         updateViewCards();
@@ -123,6 +180,7 @@ function App() {
         console.log(err);
         setLoading(false);
       });
+    }
   }
 
   function handlerSearchButtonSaveMovies(str) {
@@ -158,6 +216,7 @@ function App() {
       apiServer.addMovies(movieTarget)
       .then((newCard) => {
         setSaveMovies([...saveMovies, newCard.data]);
+        localStorage.setItem('moviesSave', JSON.stringify([...saveMovies, newCard.data]));
       })
       .catch((err) => {
         console.log(err);
@@ -177,6 +236,7 @@ function App() {
         }
 
         function profileEdit(name,email) {
+          localStorage.setItem('user', JSON.stringify({name,email}))
           setcurrentUser({name,email});
         }
 
@@ -195,7 +255,7 @@ function App() {
               nothing={findNothing}
               loading={loading}
               searchButton={handlerSearchButton}
-              checkbox={toggleChange}
+              checkbox={toggleChangeMovies}
               movies={findResult}
               saveMovies={saveMovies}
               cardsView ={quantityCards}
@@ -212,7 +272,7 @@ function App() {
               nothing={findNothing}
               loading={loading}
               searchButton={handlerSearchButtonSaveMovies}
-              checkbox={toggleChange}
+              checkbox={toggleChangeMoviesSave}
               saveMovies={saveMovies}
               cardsView ={quantityCards}
               more={handlerMoreButton}

@@ -17,13 +17,15 @@ function Profile(props) {
       .editProfile(name,email)
       .then(() => {
         props.profileEdit(name,email);
-        setText('Изменения выполнены');
+        validation.resetForm();
       })
       .catch((err) => {
         setText(`${err}`);
       }
       );
   }
+
+
   return (
     <>
     <Header burger={props.burger}/>
