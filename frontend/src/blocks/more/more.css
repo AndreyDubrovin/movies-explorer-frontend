@@ -1,5 +1,5 @@
 .more {
-  display: flex;
+  display: none;
   justify-content: center;
   padding: 50px 70px 80px;
 }

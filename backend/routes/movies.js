@@ -20,7 +20,7 @@ router.delete('/movies/:movieId', celebrate({
     movieId: Joi.string().required().length(24).hex(),
   }),
 }), deleteMovie);
-router.post('/', celebrate({
+router.post('/movies/', celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
     director: Joi.string().required(),

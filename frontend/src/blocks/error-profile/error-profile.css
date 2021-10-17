@@ -1,0 +1,17 @@
+.error-profile {
+    display: flex;
+    max-width: 410px;
+    font-family: "Inter", Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ff3055;
+    margin-bottom: 18px;
+}
+
+@media screen and (max-width: 450px) {
+  .error-profile {
+    max-width: 260px;
+  }
+}

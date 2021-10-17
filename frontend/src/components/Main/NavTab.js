@@ -4,8 +4,8 @@ import { Route, Link, Switch, useHistory } from "react-router-dom";
 function NavTab(props) {
   const history = useHistory();
 
-  function handleButtonClickReg() {
-    history.push("/signup");
+  function handleButtonClickEnter() {
+    history.push("/signin");
   }
 
   function handleButtonClickProf() {
@@ -28,7 +28,7 @@ function NavTab(props) {
             <button
               className="header-menu__button-enter"
               type="button"
-              onClick={handleButtonClickReg}
+              onClick={handleButtonClickEnter}
             >
               Войти
             </button>

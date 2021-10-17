@@ -1,6 +1,9 @@
 const allowedCors = [
-  'https://x4037.nomoredomains.rocks',
-  'http://x4037.nomoredomains.rocks',
+  'https://penoto.nomoredomains.club',
+/*   'http://127.0.0.1:3001',
+  'https://127.0.0.1:3001',
+  'https://localhost:3001',
+  'http://localhost:3001', */
 ];
 
 module.exports = (req, res, next) => {

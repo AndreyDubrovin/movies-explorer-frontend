@@ -1,5 +1,5 @@
 .error {
-  display: none;
+  display: flex;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
